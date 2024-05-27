@@ -1,0 +1,18 @@
+---
+import { Site } from "../site";
+
+const getYear = () => {
+  const now = new Date();
+  return now.getFullYear();
+};
+
+const year = getYear();
+---
+<footer>
+  <div class="footer-inner">
+    <div class="footer-text">
+      &copy; {year}
+      <strong>{Site.copyright}.</strong> All rights reserved. Framework by Astro. Design by Azure ChatGPT-4o.
+    </div>
+  </div>
+</footer>

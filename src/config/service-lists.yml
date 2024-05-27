@@ -1,0 +1,84 @@
+- title: "AI"
+  id: "ai"
+  services:
+    - name: 文心一言
+      url: https://yiyan.baidu.com/
+      description: 百度大语言模型
+    - name: 讯飞星火
+      url: https://xinghuo.xfyun.cn/
+      description: 科大讯飞中文大模型（支持绘图）
+    - name: 通义千问
+      url: https://tongyi.aliyun.com/qianwen/
+      description: 阿里大语言模型 AI 助手
+    - name: 腾讯混元大模型
+      url: https://hunyuan.tencent.com/
+      description: 腾讯大语言模型
+    - name: 腾讯Effidit
+      url: https://effidit.qq.com/
+      description: 智能创作助手 Effidit 提供创作辅助能力
+    - name: ChatGPT
+      url: https://chatgpt.com/
+      description: OpenAI ChatGPT
+    - name: KiMi
+      url: https://kimi.moonshot.cn/
+      description: 月之暗面AI助手
+    - name: 智谱AI
+      url: https://chatglm.cn/main/alltoolsdetail
+      description: GLM千亿参数对话模型
+
+- title: "Office 相关"
+  id: "office"
+  services:
+    - name: 优品PPT
+      url: https://www.ypppt.com/
+      description: 一个PPT模板网站
+    - name: 第一PPT
+      url: http://www.1ppt.com/
+      description: 一个PPT模板网站
+    - name: 国科大官方模板
+      url: https://onestop.ucas.edu.cn/Home/Info/e1e7b553-14c1-42f3-910a-88d25ebf9c48
+      description: 国科大PPT模版
+    - name: UCAS Beamer (LaTeX)
+      url: https://github.com/icgw/ucas-beamer
+      description: 中科大 Beamer (LaTeX) 中文模板
+    - name: iSlide
+      url: https://www.islide.cc/
+      description: 一个PPT插件
+    - name: OfficePLUS
+      url: https://www.officeplus.cn/
+      description: 微软官方PPT模版/插件（支持Office 2016及以上）
+- title: "图库"
+  id: "tuku"
+  services:
+    - name: pexels
+      url: https://www.pexels.com/zh-cn/
+      description: 可免费商用的图片素材
+
+    - name: Unsplash
+      url: https://unsplash.com/
+      description: 免费可商用图库
+
+- title: "图像处理"
+  id: "tuxiangchuli"
+  services:
+    - name: 佐糖
+      url: https://picwish.cn/
+      description: 在线免费抠图工具
+    - name: remove.bg
+      url: https://www.remove.bg/zh
+      description: 在线免费抠图工具
+
+- title: "搜索引擎"
+  id: "sousuo"
+  services:
+    - name: 春晖投行在线
+      type: 搜索引擎
+      url: http://www.shenchunhui.com/
+      description: 特别全的投行相关法规文件搜索网页
+
+- title: "资源下载"
+  id: "ziyuanxiazai"
+  services:
+    - name: MSDN我告诉你
+      url: https://msdn.itellyou.cn/
+      description: Windows 镜像下载站
