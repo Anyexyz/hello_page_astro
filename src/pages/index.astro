@@ -115,20 +115,163 @@ import lists from "../service-lists.yml";
     </div>
 	<Footer />
     <script>
-        eval(function(e, t, a, c, i, n) {
-            if (i = function(e) {
-                    return (e < t ? "" : i(parseInt(e / t))) + (35 < (e %= t) ? String.fromCharCode(e + 29) : e.toString(36))
-                }, !"".replace(/^/, String)) {
-                for (; a--;) n[i(a)] = c[a] || i(a);
-                c = [function(e) {
-                    return n[e]
-                }], i = function() {
-                    return "\\w+"
-                }, a = 1
+        (function () {
+            // DOM元素引用
+            var searchBlankCheckbox = document.querySelector("#set-search-blank"),
+                searchGroups = document.querySelectorAll(".search-group"),
+                selectedRadio = null;
+            var searchForm = document.querySelector("#super-search-fm"),
+                searchInput = document.querySelector("#search-text"),
+                searchTypeRadios = document.querySelectorAll('input[name="type"]');
+            // 初始化函数
+            function initialize() {
+                updateCheckbox();
+                updateRadio();
+                updatePlaceholder();
+                updateAction();
             }
-            for (; a--;) c[a] && (e = e.replace(new RegExp("\\b" + i(a) + "\\b", "g"), c[a]));
-            return e
-        }('!2(){2 g(){h(),i(),j(),k()}2 h(){d.9=s()}2 i(){z a=4.8(\'A[B="7"][5="\'+p()+\'"]\');a&&(a.9=!0,l(a))}2 j(){v(u())}2 k(){w(t())}2 l(a){P(z b=0;b<e.O;b++)e[b].I.1c("s-M");a.F.F.F.I.V("s-M")}2 m(a,b){E.H.S("L"+a,b)}2 n(a){6 E.H.Y("L"+a)}2 o(a){f=a.3,v(u()),w(a.3.5),m("7",a.3.5),c.K(),l(a.3)}2 p(){z b=n("7");6 b||a[0].5}2 q(a){m("J",a.3.9?1:-1),x(a.3.9)}2 r(a){6 a.11(),""==c.5?(c.K(),!1):(w(t()+c.5),x(s()),s()?E.U(b.G,+T X):13.Z=b.G,10 0)}2 s(){z a=n("J");6 a?1==a:!0}2 t(){6 4.8(\'A[B="7"]:9\').5}2 u(){6 4.8(\'A[B="7"]:9\').W("14-N")}2 v(a){c.1e("N",a)}2 w(a){b.G=a}2 x(a){a?b.3="1a":b.16("3")}z y,a=4.R(\'A[B="7"]\'),b=4.8("#18-C-19"),c=4.8("#C-12"),d=4.8("#17-C-15"),e=4.R(".C-1b"),f=a[0];P(g(),y=0;y<a.O;y++)a[y].D("Q",o);d.D("Q",q),b.D("1d",r)}();', 62, 77, "||function|target|document|value|return|type|querySelector|checked||||||||||||||||||||||||||var|input|name|search|addEventListener|window|parentNode|action|localStorage|classList|newWindow|focus|superSearch|current|placeholder|length|for|change|querySelectorAll|setItem|new|open|add|getAttribute|Date|getItem|href|void|preventDefault|text|location|data|blank|removeAttribute|set|super|fm|_blank|group|remove|submit|setAttribute".split("|"), 0, {}));
+            // 更新复选框状态
+            function updateCheckbox() {
+                if (searchBlankCheckbox) {
+                    (searchBlankCheckbox as HTMLInputElement).checked = isNewWindow();
+                }
+            }
+            // 更新单选按钮状态
+            function updateRadio() {
+                selectedRadio = document.querySelector(
+                    'input[name="type"][value="' + getCurrentType() + '"]'
+                );
+                if (selectedRadio) {
+                    (selectedRadio as HTMLInputElement).checked = true;
+                    highlightCurrentGroup(selectedRadio as HTMLInputElement);
+                }
+            }
+            // 更新搜索框占位符
+            function updatePlaceholder() {
+                setSearchPlaceholder(getPlaceholderText() || '');
+            }
+            // 更新表单提交地址
+            function updateAction() {
+                setFormAction(getActionURL());
+            }
+            // 高亮当前选中的单选按钮所在的组
+            function highlightCurrentGroup(selectedRadio: HTMLInputElement) {
+                if (selectedRadio && selectedRadio.parentNode && selectedRadio.parentNode.parentNode) {
+                    const groupNode = selectedRadio.parentNode.parentNode.parentNode;
+                    if (groupNode instanceof Element && groupNode.classList) {
+                        for (let i = 0; i < searchGroups.length; i++) {
+                            searchGroups[i].classList.remove("s-current");
+                        }
+                        groupNode.classList.add("s-current");
+                    }
+                }
+            }
+            // 保存到本地存储
+            function saveToLocalStorage(key: string, value: any) {
+                window.localStorage.setItem("superSearch" + key, value);
+            }
+            // 从本地存储获取数据
+            function getFromLocalStorage(key: string) {
+                return window.localStorage.getItem("superSearch" + key);
+            }
+            // 处理单选按钮改变事件
+            function handleRadioChange(event: Event) {
+                var target = event.target;
+                updatePlaceholder();
+                setFormAction(getActionURL());
+                if (target) {
+                    saveToLocalStorage("type", (target as HTMLInputElement).value);
+                }
+                if (searchInput) {
+                    (searchInput as HTMLInputElement).focus();
+                }
+                if (target instanceof HTMLInputElement) {
+                    highlightCurrentGroup(target);
+                }
+            }
+            // 获取当前选中的单选按钮的值
+            function getCurrentType() {
+                var typeFromStorage = getFromLocalStorage("type");
+                return typeFromStorage || (searchTypeRadios[0] as HTMLInputElement).value;
+            }
+            // 处理复选框改变事件
+            function handleCheckboxChange(event: Event) {
+                saveToLocalStorage(
+                    "newWindow",
+                    event.target && (event.target as HTMLInputElement).checked ? 1 : -1
+                );
+                if (event.target) {
+                    updateNewWindow((event.target as HTMLInputElement).checked);
+                }
+            }
+            // 更新是否在新窗口中打开搜索结果
+            function updateNewWindow(isChecked: boolean) {
+                if (searchForm) {
+                    isChecked
+                        ? ((searchForm as HTMLFormElement).target = "_blank")
+                        : searchForm.removeAttribute("target");
+                }
+            }
+            // 处理表单提交事件
+            function handleSubmit(event: Event) {
+                event.preventDefault();
+                if (searchInput && (searchInput as HTMLInputElement).value === "") {
+                    (searchInput as HTMLInputElement).focus();
+                    return false;
+                } else {
+                    if (searchInput) {
+                        setFormAction(getActionURL() + (searchInput as HTMLInputElement).value);
+                    }
+                    updateNewWindow(isNewWindow());
+                    isNewWindow()
+                        ? (searchForm && window.open((searchForm as HTMLFormElement).action, String(+new Date())))
+                        : (searchForm && (location.href = (searchForm as HTMLFormElement).action));
+                }
+            }
+            // 获取是否在新窗口中打开搜索结果
+            function isNewWindow() {
+                var newWindowSetting = getFromLocalStorage("newWindow");
+                return newWindowSetting ? Number(newWindowSetting) == 1 : true;
+            }
+            // 获取当前选中的单选按钮的占位符文本
+            function getPlaceholderText() {
+                var currentTypeRadio = getCurrentTypeRadio();
+                return currentTypeRadio ? currentTypeRadio.getAttribute("data-placeholder") : null;
+            }
+            // 获取当前选中的单选按钮的元素
+            function getCurrentTypeRadio() {
+                return document.querySelector('input[name="type"]:checked');
+            }
+            // 获取表单提交地址
+            function getActionURL() {
+                var currentTypeRadio = getCurrentTypeRadio() as HTMLInputElement;
+                return currentTypeRadio ? currentTypeRadio.value : '';
+            }
+            // 设置搜索框占位符文本
+            function setSearchPlaceholder(text: string) {
+                if (searchInput) {
+                    searchInput.setAttribute("placeholder", text);
+                }
+            }
+            // 设置表单提交地址
+            function setFormAction(url: string) {
+                if (searchForm) {
+                    (searchForm as HTMLFormElement).action = url;
+                }
+            }
+            // 初始化
+            initialize();
+            // 事件监听
+            for (var i = 0; i < searchTypeRadios.length; i++) {
+                searchTypeRadios[i].addEventListener("change", handleRadioChange);
+            }
+            if (searchBlankCheckbox) {
+                searchBlankCheckbox.addEventListener("change", handleCheckboxChange);
+            }
+            if (searchForm) {
+                searchForm.addEventListener("submit", handleSubmit);
+            }
+        })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
