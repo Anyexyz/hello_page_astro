@@ -3,26 +3,24 @@ export interface Service {
   name: string;
   icon: string;
   url: string;
-  description: string;
 }
 
-const { id, title, services } = Astro.props;
+const { id, title, icon, services } = Astro.props;
 ---
 
-<section>
-  <h2 id={id}>{title}</h2>
-  <div class="card-grid">
-    {
-      services.map((service: Service) => (
-        <div
-          class="card"
-          onclick={"window.open('" + service.url + "', '_blank')"}
-        >
-          {service.name}
-          <br />
-          <span>{service.description}</span>
-        </div>
+<ul class="mylist row">
+  <li class="title"><svg class="icon" aria-hidden="true">
+  <use xlink:href={icon}></use></svg> {title}</li>
+  {
+    services.map((service: Service) => (
+        <li class="col-3 col-sm-3 col-md-3 col-lg-1">
+          <a rel="nofollow" href={service.url} target="_blank">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href={service.icon}></use>
+            </svg>
+            <span>{service.name}</span>
+          </a>
+        </li>
       ))
-    }
-  </div>
-</section>
+  }
+</ul>
