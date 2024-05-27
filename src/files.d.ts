@@ -1,4 +1,4 @@
-declare module "./config/*.yml" {
+declare module "*.yml" {
   const value: any;
   export default value;
 }

@@ -8,12 +8,12 @@ import Navbar from "../components/Navbar.astro";
 import Group from "../components/Group.astro";
 import Footer from "../components/Footer.astro";
 
-import search_lists from "../config/search-lists.yml";
-import lists from "../config/service-lists.yml";
+import search_lists from "../search-lists.yml";
+import lists from "../service-lists.yml";
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN"  element::-webkit-scrollbar="" {display:none}="">
+<html lang="zh-CN">
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -34,7 +34,7 @@ import lists from "../config/service-lists.yml";
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" type="application/javascript"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 	<script src="https://at.alicdn.com/t/font_1230786_ewprpwrczvj.js"></script>
-	<script src={Site.iconfont}></script>
+    <link href={Site.iconfont}></script>
 </head>
 
 <body>
@@ -61,17 +61,6 @@ import lists from "../config/service-lists.yml";
             </ul>
 			<div id="main">
 				<div id="show_date">{new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}  {new Date().toLocaleDateString('zh-CN', { weekday: 'long' })}</div>
-				<div id="show_time">
-					<script>
-						function updateTime() {
-							var now = new Date();
-							var timeString = now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
-							document.getElementById('show_time').textContent = timeString;
-						}
-						updateTime();
-						setInterval(updateTime, 30000);
-					</script>
-				</div>
 			</div>
         </div>
     </nav>
@@ -126,20 +115,20 @@ import lists from "../config/service-lists.yml";
     </div>
 	<Footer />
     <script>
-    eval(function(e, t, a, c, i, n) {
-        if (i = function(e) {
-                return (e < t ? "" : i(parseInt(e / t))) + (35 < (e %= t) ? String.fromCharCode(e + 29) : e.toString(36))
-            }, !"".replace(/^/, String)) {
-            for (; a--;) n[i(a)] = c[a] || i(a);
-            c = [function(e) {
-                return n[e]
-            }], i = function() {
-                return "\\w+"
-            }, a = 1
-        }
-        for (; a--;) c[a] && (e = e.replace(new RegExp("\\b" + i(a) + "\\b", "g"), c[a]));
-        return e
-    }('!2(){2 g(){h(),i(),j(),k()}2 h(){d.9=s()}2 i(){z a=4.8(\'A[B="7"][5="\'+p()+\'"]\');a&&(a.9=!0,l(a))}2 j(){v(u())}2 k(){w(t())}2 l(a){P(z b=0;b<e.O;b++)e[b].I.1c("s-M");a.F.F.F.I.V("s-M")}2 m(a,b){E.H.S("L"+a,b)}2 n(a){6 E.H.Y("L"+a)}2 o(a){f=a.3,v(u()),w(a.3.5),m("7",a.3.5),c.K(),l(a.3)}2 p(){z b=n("7");6 b||a[0].5}2 q(a){m("J",a.3.9?1:-1),x(a.3.9)}2 r(a){6 a.11(),""==c.5?(c.K(),!1):(w(t()+c.5),x(s()),s()?E.U(b.G,+T X):13.Z=b.G,10 0)}2 s(){z a=n("J");6 a?1==a:!0}2 t(){6 4.8(\'A[B="7"]:9\').5}2 u(){6 4.8(\'A[B="7"]:9\').W("14-N")}2 v(a){c.1e("N",a)}2 w(a){b.G=a}2 x(a){a?b.3="1a":b.16("3")}z y,a=4.R(\'A[B="7"]\'),b=4.8("#18-C-19"),c=4.8("#C-12"),d=4.8("#17-C-15"),e=4.R(".C-1b"),f=a[0];P(g(),y=0;y<a.O;y++)a[y].D("Q",o);d.D("Q",q),b.D("1d",r)}();', 62, 77, "||function|target|document|value|return|type|querySelector|checked||||||||||||||||||||||||||var|input|name|search|addEventListener|window|parentNode|action|localStorage|classList|newWindow|focus|superSearch|current|placeholder|length|for|change|querySelectorAll|setItem|new|open|add|getAttribute|Date|getItem|href|void|preventDefault|text|location|data|blank|removeAttribute|set|super|fm|_blank|group|remove|submit|setAttribute".split("|"), 0, {}));
+        eval(function(e, t, a, c, i, n) {
+            if (i = function(e) {
+                    return (e < t ? "" : i(parseInt(e / t))) + (35 < (e %= t) ? String.fromCharCode(e + 29) : e.toString(36))
+                }, !"".replace(/^/, String)) {
+                for (; a--;) n[i(a)] = c[a] || i(a);
+                c = [function(e) {
+                    return n[e]
+                }], i = function() {
+                    return "\\w+"
+                }, a = 1
+            }
+            for (; a--;) c[a] && (e = e.replace(new RegExp("\\b" + i(a) + "\\b", "g"), c[a]));
+            return e
+        }('!2(){2 g(){h(),i(),j(),k()}2 h(){d.9=s()}2 i(){z a=4.8(\'A[B="7"][5="\'+p()+\'"]\');a&&(a.9=!0,l(a))}2 j(){v(u())}2 k(){w(t())}2 l(a){P(z b=0;b<e.O;b++)e[b].I.1c("s-M");a.F.F.F.I.V("s-M")}2 m(a,b){E.H.S("L"+a,b)}2 n(a){6 E.H.Y("L"+a)}2 o(a){f=a.3,v(u()),w(a.3.5),m("7",a.3.5),c.K(),l(a.3)}2 p(){z b=n("7");6 b||a[0].5}2 q(a){m("J",a.3.9?1:-1),x(a.3.9)}2 r(a){6 a.11(),""==c.5?(c.K(),!1):(w(t()+c.5),x(s()),s()?E.U(b.G,+T X):13.Z=b.G,10 0)}2 s(){z a=n("J");6 a?1==a:!0}2 t(){6 4.8(\'A[B="7"]:9\').5}2 u(){6 4.8(\'A[B="7"]:9\').W("14-N")}2 v(a){c.1e("N",a)}2 w(a){b.G=a}2 x(a){a?b.3="1a":b.16("3")}z y,a=4.R(\'A[B="7"]\'),b=4.8("#18-C-19"),c=4.8("#C-12"),d=4.8("#17-C-15"),e=4.R(".C-1b"),f=a[0];P(g(),y=0;y<a.O;y++)a[y].D("Q",o);d.D("Q",q),b.D("1d",r)}();', 62, 77, "||function|target|document|value|return|type|querySelector|checked||||||||||||||||||||||||||var|input|name|search|addEventListener|window|parentNode|action|localStorage|classList|newWindow|focus|superSearch|current|placeholder|length|for|change|querySelectorAll|setItem|new|open|add|getAttribute|Date|getItem|href|void|preventDefault|text|location|data|blank|removeAttribute|set|super|fm|_blank|group|remove|submit|setAttribute".split("|"), 0, {}));
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
