@@ -1,0 +1,11 @@
+---
+import lists from "../config/navbar-lists.yml";
+---
+
+{
+    lists.map((list: any) => (
+    <li class="nav-item">
+        <a class="nav-link" href={list.url} target={list.target}>{list.name}</a>
+    </li>
+    ))
+}

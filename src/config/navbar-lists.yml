@@ -1,0 +1,9 @@
+- name: 主页
+  url: https://anye.xyz
+  target: 
+- name: 博客
+  url: https://www.anye.xyz
+  target: _blank
+- name: Github
+  url: https://github.com/Anyexyz
+  target: _blank

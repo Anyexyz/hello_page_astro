@@ -1,7 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Group from "../components/Group.astro";
-import Sidebar from "../components/Sidebar.astro";
+import Navbar from "../components/Navbar.astro";
 import lists from "../config/service-lists.yml";
 
 
@@ -10,6 +10,8 @@ import "../styles/main.css";
 import "../script/sou.js";
 
 import { Site } from "../site";
+
+
 ---
 
 <!DOCTYPE html>
@@ -57,58 +59,12 @@ import { Site } from "../site";
         </button>
         <div class="collapse navbar-collapse" id="navbarsExample05">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="https://blog.5iux.cn" target="_blant">博客</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://dyartstyle.com" target="_blant">DY点线面</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://hao.5iux.cn/" target="_blant">设计导航</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://wat.dyartstyle.com" target="_blant">吾爱淘</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/5iux/5iux.github.io" target="_blant">Github</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://blog.5iux.cn/about" target="_blant">About</a>
-                </li>
+				<Navbar />
             </ul>
-            <style>
-                #he-plugin-simple {
-                    z-index: 1000;
-                }
-            </style>
-            <div id="he-plugin-simple"></div>
-            <script>
-                WIDGET = {
-                    CONFIG: {
-                        "modules": "01234",
-                        "background": 5,
-                        "tmpColor": "4A4A4A",
-                        "tmpSize": 14,
-                        "cityColor": "4A4A4A",
-                        "citySize": 14,
-                        "aqiSize": 14,
-                        "weatherIconSize": 22,
-                        "alertIconSize": 16,
-                        "padding": "8px 8px 8px 8px",
-                        "shadow": "1",
-                        "language": "auto",
-                        "borderRadius": 5,
-                        "fixed": "false",
-                        "vertical": "middle",
-                        "horizontal": "center",
-                        "key": "acd0fdcab4b9481a98d0f59145420fac"
-                    }
-                }
-            </script>
-            <script src="https://widget.heweather.net/simple/static/js/he-simple-common.js?v=1.1"></script>
         </div>
     </nav>
     <!--topbar结束-->
+
     <div class="container" style="margin-top: 100px; position: relative; z-index: 100;">
         <!--搜索开始-->
         <div id="search" class="s-search">
@@ -135,6 +91,7 @@ import { Site } from "../site";
             </div>
         </div>
         <!--搜索结束-->
+
         <ul class="mylist row">
             <!------>
             <li class="title"><svg class="icon" aria-hidden="true">
@@ -400,13 +357,6 @@ import { Site } from "../site";
     </div>
     <!--版权信息开始-->
     <p class="mt-5 mb-3 text-muted text-center">©2021 by <a href="https://blog.5iux.cn/">5iux</a>. All rights reserved.</p>
-    <!--
-作者:D.Young
-主页：https://blog.5iux.cn/
-github：https://github.com/5iux/5iux.github.io
-日期：2021-08-02
-版权所有，请勿删除
--->
     <!--版权信息结束-->
     <script>
     eval(function(e, t, a, c, i, n) {
