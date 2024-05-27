@@ -1,7 +1,7 @@
 ---
-import Footer from "../components/Footer.astro";
+
 import Group from "../components/Group.astro";
-import Navbar from "../components/Navbar.astro";
+
 import lists from "../config/service-lists.yml";
 
 
@@ -11,11 +11,13 @@ import "../script/sou.js";
 
 import { Site } from "../site";
 
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN"  element::-webkit-scrollbar="" {display:none}="">
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -47,7 +49,7 @@ import { Site } from "../site";
 
     <!--topbar开始-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="position: absolute; z-index: 10000;">
-        <a class="navbar-brand" href="/"><img src="https://cdn.jsdelivr.net/gh/5iux/uploads/pic/20200424logo4.svg" height="35" style=" margin-left: -40px;" alt=""></a>
+        <a class="navbar-brand" href={`${import.meta.env.BASE_URL}`}><img src={Site.icon} height="35" style=" margin-left: 20px;" alt=""></a>
         <button class="navbar-toggler collapsed" style="border: none; outline: none;" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="bi bi-list-nested" fill="currentColor" id="list-nested">
                 <path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 015 11h10a.5.5 0 010 1H5a.5.5 0 01-.5-.5zm-2-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm-2-4A.5.5 0 011 3h10a.5.5 0 010 1H1a.5.5 0 01-.5-.5z"></path>
@@ -61,11 +63,27 @@ import { Site } from "../site";
             <ul class="navbar-nav mr-auto">
 				<Navbar />
             </ul>
+			<div id="main">
+				<div id="show_date">{new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}  {new Date().toLocaleDateString('zh-CN', { weekday: 'long' })}</div>
+				<div id="show_time">
+					<script>
+						function updateTime() {
+							var now = new Date();
+							var timeString = now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+							document.getElementById('show_time').textContent = timeString;
+						}
+						updateTime();
+						setInterval(updateTime, 30000);
+					</script>
+				</div>
+			</div>
         </div>
     </nav>
     <!--topbar结束-->
 
     <div class="container" style="margin-top: 100px; position: relative; z-index: 100;">
+		<h2 class="title">{Site.h2}</h2>
+		<p class="content">{Site.yiyan[Math.floor(Math.random() * Site.yiyan.length)]}</p>
         <!--搜索开始-->
         <div id="search" class="s-search">
             <div id="search-list" class="hide-type-list">
@@ -355,9 +373,7 @@ import { Site } from "../site";
                     </svg><span>多吉</span></a></li>
         </ul>
     </div>
-    <!--版权信息开始-->
-    <p class="mt-5 mb-3 text-muted text-center">©2021 by <a href="https://blog.5iux.cn/">5iux</a>. All rights reserved.</p>
-    <!--版权信息结束-->
+	<Footer />
     <script>
     eval(function(e, t, a, c, i, n) {
         if (i = function(e) {
