@@ -4,117 +4,102 @@
   services:
     - name: 微信传输助手
       url: https://szfilehelper.weixin.qq.com/
-      icon: ""
+      icon: "#wenjianchuanshuzhushou"
     - name: 飞书网页版
       url: https://feishu.cn/messages
-      icon: ""
+      icon: "#feishu"
     - name: IT 工具箱
       url: https://www.anye.xyz/tools
-      icon: ""
+      icon: "#IT"
     - name: 打字练习
       url: https://qwerty.anye.in/
-      icon: ""
+      icon: "#keyborad-full"
     - name: Video
       url: https://video.anye.in/
-      icon: ""
+      icon: "#video"
 - title: "AI"
   id: "ai"
-  icon: ""
+  icon: "#wuguan"
   services:
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
-    - name: 
-      url: 
-      icon: ""
+    - name: 文心一言
+      url: https://yiyan.baidu.com/
+      icon: "#baiduchatgpt"
+    - name: 讯飞星火
+      url: https://xinghuo.xfyun.cn/
+      icon: "#xunfeichatgpt"
+    - name: 通义千问
+      url: https://tongyi.aliyun.com/qianwen/
+      icon: "#tongyiqianwenTongyi-Qianwen"
+    - name: 360智脑
+      url: https://chat.360.com/
+      icon: "#360logo"
+    - name: 腾讯混元大模型
+      url: https://hunyuan.tencent.com/bot/chat
+      icon: "#tengxunyunwendangzhongxin-tengxunyun-"
+    - name: ChatGPT
+      url: https://chat.openai.com/
+      icon: "#a-AIgaitu-WX20230906-1134052xkaobei-1000x998"
+    - name: Google Gemini
+      url: https://gemini.google.com/
+      icon: "#google"
+    - name: Microsoft Copilot
+      url: https://copilot.microsoft.com/
+      icon: "#microsoft-copilot"
+    - name: 抖音豆包
+      url: https://www.doubao.com/
+      icon: "#wode"
+    - name: Kimi.ai
+      url: https://kimi.moonshot.cn/
+      icon: "#logok"
+    - name: Huggingface
+      url: https://huggingface.co/
+      icon: "#huggingface"
 - title: "工具"
   id: "tools"
   icon: "#icon-ai-tool"
   services:
     - name: 文档在线转换
       url: https://xpdf.cn/
-      icon: ""
+      icon: "#PDFzhuanWord"
     - name: IP查询
       url: https://ipw.cn/
-      icon: ""
+      icon: "#ip"
     - name: 在线工具
       url: https://tool.lu/
-      icon: ""
+      icon: "#zaixiangongju"
     - name: HTML在线运行
       url: https://www.jyshare.com/front-end/61/
-      icon: ""
+      icon: "#html"
     - name: MD编辑器
       url: https://www.lylme.com/html/
       icon: "#icon-md"
     - name: 微PE工具
       url: https://www.wepe.com.cn/
-      icon: ""
+      icon: "#weiPEgongjuxiang"
     - name: 在线代码格式化
       url: https://tool.oschina.net/codeformat/html/
-      icon: ""
+      icon: "#js"
     - name: 在线Ping
       url: https://ping.chinaz.com/
       icon: "#icon-wangluo1"
     - name: ICP备案查询
       url: https://beian.miit.gov.cn/
-      icon: ""
+      icon: "#beianxinxi-ICP-gonganbeian"
     - name: 在线PS
       url: https://www.photopea.com/
-      icon: ""
+      icon: "#ps"
     - name: W3school
       url: https://www.w3school.com.cn/
       icon: "#icon-h5"
     - name: 码云Gitee
       url: https://gitee.com/
-      icon: ""
+      icon: "#GITEE"
     - name: CdnJs
       url: https://cdnjs.com/
       icon: "#icon-cdnjs"
     - name: 字节跳动CDN
       url: https://cdn.bytedance.com/
-      icon: ""
+      icon: "#zijietiaodong"
     - name: Font Awesome
       url: https://fontawesome.com/search
       icon: "#icon-font-awesome"
@@ -123,53 +108,53 @@
       icon: "#icon-windows"
     - name: 公安备案查询
       url: https://beian.mps.gov.cn/#/query/webSearch
-      icon: ""
+      icon: "#gonganbeian"
     - name: Time.is
       url: https://time.is/
-      icon: ""
+      icon: "#time"
     - name: 百川云常用工具
       url: https://rivers.chaitin.cn/tools/
-      icon: ""
+      icon: "#2"
     - name: 正则表达式
       url: https://regex-vis.com/
-      icon: ""
+      icon: "#regularExpression-o"
     - name: UUP dump
       url: https://uupdump.net/
-      icon: ""
+      icon: "#Windows"
     - name: Vercel
       url: https://vercel.com/
-      icon: ""
+      icon: "#Vercel"
     - name: SMS-Activate
       url: https://sms-activate.org/cn
-      icon: ""
+      icon: "#SMS"
     - name: Tailscale
       url: https://tailscale.com/
-      icon: ""
+      icon: "#icon-Tailscale"
 - title: "云盘"
   id: "pan"
-  icon: ""
+  icon: "#yunyunpan"
   services:
     - name: 阿里云盘
       url: https://www.aliyundrive.com/
-      icon: ""
+      icon: "#aliyunpan"
     - name: 百度网盘
       url: https://pan.baidu.com/
-      icon: ""
+      icon: "#baiduwangpan"
     - name: 蓝奏云
       url: https://pan.lanzouy.com/
-      icon: ""
+      icon: "#lanzou"
     - name: 迅雷云盘
       url: https://pan.xunlei.com/
-      icon: ""
+      icon: "#xunlei"
     - name: OneDrive
       url: https://onedrive.live.com/login/
-      icon: ""
+      icon: "#OneDrive"
     - name: 天翼云盘
       url: https://cloud.189.cn/
-      icon: ""
+      icon: "#cloud189"
     - name: UC网盘
       url: https://drive.uc.cn/
-      icon: ""
+      icon: "#uc"
 - title: "邮箱"
   id: "mail"
   icon: "#icon-youxiang"
@@ -210,63 +195,63 @@
       icon: "#icon-cctv"
     - name: 抖音
       url: https://www.douyin.com/
-      icon: ""
+      icon: "#douyin"
     - name: 快手
       url: https://www.kuaishou.com/
-      icon: ""
+      icon: "#kuaishou"
     - name: 网易云音乐
       url: https://music.163.com/
-      icon: ""
+      icon: "#wangyiyunyinle"
     - name: QQ音乐
       url: https://y.qq.com/
-      icon: ""
+      icon: "#QQyinle"
     - name: 酷狗音乐
       url: https://www.kugou.com/
-      icon: ""
+      icon: "#kugouyinle"
     - name: 虎牙直播
       url: https://www.huya.com/
-      icon: ""
+      icon: "#huyazhibo"
     - name: 斗鱼直播
       url: https://www.douyu.com/
-      icon: ""
+      icon: "#douyu"
     - name: 腾讯视频
       url: https://v.qq.com/
-      icon: "#icon-tengxunshipin"
+      icon: "#tencent"
     - name: Youtube
       url: https://www.youtube.com/
       icon: "#icon-youtube"
     - name: 酷我音乐
       url: https://www.kuwo.cn/
-      icon: ""
+      icon: "#kuwoyinle"
 - title: "论坛"
   id: "luntan"
   icon: "#icon-msg"
   services:
     - name: CSDN
       url: https://www.csdn.net/
-      icon: ""
+      icon: "#csdn"
     - name: 吾爱破解
       url: https://52pojie.cn/
       icon: "#icon-theater-masks"
     - name: 黑域基地
       url: https://www.hybase.com/
-      icon: ""
+      icon: "#yuanhuan"
     - name: 飞致云社区论坛
       url: https://bbs.fit2cloud.com/
-      icon: ""
+      icon: "#fit2cloud"
     - name: 米游社
       url: https://www.miyoushe.com/
-      icon: ""
+      icon: "#mihayoutonghangzheng"
     - name: 百度贴吧
       url: https://tieba.baidu.com/
-      icon: ""
+      icon: "#social-tieba"
 - title: 购物
   id: gouwu
-  icon: ""
+  icon: "#gouwu"
   services:
     - name: "识货"
       url: "http://www.shihuo.cn/"
-      icon: ""
+      icon: "#shihuo"
     - name: "京东"
       url: "https://jd.com"
       icon: "#icon-jingdong"
@@ -275,85 +260,85 @@
       icon: "#icon-taobao"
     - name: "天猫"
       url: "https://www.tmall.com/"
-      icon: ""
+      icon: "#tianmaologo2"
     - name: "华为商城"
       url: "https://www.vmall.com/"
-      icon: ""
+      icon: "#huaweicloud"
     - name: "小米商城"
       url: "https://www.mi.com/shop"
-      icon: ""
+      icon: "#xiaomi-default"
 - title: 游戏娱乐
   id: youxi
-  icon: ""
+  icon: "#youxiyule"
   services:
     - name: "4399小游戏"
       url: "https://www.4399.com/"
-      icon: ""
+      icon: "#youxiwang"
     - name: "7k7k小游戏"
       url: "http://www.7k7k.com/"
-      icon: ""
+      icon: "#kkxiaoyouxi"
     - name: "英雄联盟"
       url: "https://lol.qq.com/"
-      icon: ""
+      icon: "#yingxionglianmeng"
     - name: "永劫无间"
       url: "https://www.yjwujian.cn/"
-      icon: ""
+      icon: "#yongjiewujian"
     - name: "STEAM"
       url: "https://store.steampowered.com/"
-      icon: ""
+      icon: "#steam"
     - name: "王者荣耀"
       url: "https://pvp.qq.com/"
-      icon: ""
+      icon: "#wangzherongyao"
     - name: "3DM GAME"
       url: "https://www.3dmgame.com/"
-      icon: ""
+      icon: "#dmaxs"
     - name: "云原神"
       url: "https://ys.mihoyo.com/cloud/"
-      icon: ""
+      icon: "#pyro"
 - title: "云厂商"
   id: "cloud"
-  icon: ""
+  icon: "#yunyunpan"
   services:
     - name: "腾讯云"
       url: "https://cloud.tencent.com/"
-      icon: ""
+      icon: "#tengxunyun"
     - name: "阿里云"
       url: "https://www.aliyun.com/"
-      icon: ""
+      icon: "#aliyun"
     - name: "华为云"
       url: "https://www.huaweicloud.com/"
-      icon: ""
+      icon: "#huaweiyun"
     - name: "Oracle"
       url: "https://www.oracle.com/"
-      icon: ""
+      icon: "#oracle"
     - name: "AWS"
       url: "https://aws.amazon.com/"
-      icon: ""
+      icon: "#aws"
     - name: "百度智能云"
       url: "https://cloud.baidu.com/"
-      icon: ""
+      icon: "#baiduzhinengyun"
     - name: "Dynadot"
       url: "https://www.dynadot.com/zh/"
-      icon: ""
+      icon: "#a_circle_d_outline"
 - title: "出行"
   id: "chuxing"
-  icon: ""
+  icon: "#chuhang"
   services:
     - name: "中铁12306"
       url: "http://12306.cn/"
-      icon: ""
+      icon: "#tielu"
     - name: "百度地图"
       url: "https://map.baidu.com/"
-      icon: ""
+      icon: "#baidu-copy"
     - name: "腾讯地图"
       url: "https://map.qq.com/"
-      icon: ""
+      icon: "#tengxunditu1"
     - name: "高德地图"
       url: "https://www.amap.com/"
-      icon: ""
+      icon: "#gaodeditux"
     - name: "同程旅行"
       url: "https://www.ly.com/"
-      icon: ""
+      icon: "#a-tongchenglvhangtongjiyixuanzhong"
     - name: "携程旅行"
       url: "https://www.ctrip.com/"
-      icon: ""
+      icon: "#xiechenghuochepiao"
