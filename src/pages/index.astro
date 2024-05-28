@@ -14,276 +14,431 @@ import lists from "../service-lists.yml";
 
 <!DOCTYPE html>
 <html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{Site.title}</title>
+        <meta name="keywords" content={Site.keywords} />
+        <meta name="description" content={Site.description} />
+        <meta name="author" content={Site.author} />
+        <link rel="icon" href={Site.icon} type="image/x-icon" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="full-screen" content="yes" />
+        <meta name="browsermode" content="application" />
+        <meta name="x5-fullscreen" content="true" />
+        <meta name="x5-page-mode" content="app" />
+        <meta name="lsvn" content={Site.lsvn} />
+        <script
+            src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+            type="application/javascript"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+            type="text/css"
+            rel="stylesheet"
+        />
+        <script src="https://at.alicdn.com/t/font_1230786_ewprpwrczvj.js"
+        ></script>
+        <script src={Site.iconfont}></script>
+    </head>
 
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{Site.title}</title>
-	<meta name="keywords" content={Site.keywords}>
-	<meta name="description" content={Site.description}>
-	<meta name="author" content={Site.author}>
-	<link rel="icon" href={Site.icon} type="image/x-icon">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-touch-fullscreen" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="full-screen" content="yes">
-	<meta name="browsermode" content="application">
-	<meta name="x5-fullscreen" content="true">
-	<meta name="x5-page-mode" content="app">
-	<meta name="lsvn" content={Site.lsvn}>
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" type="application/javascript"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-	<script src="https://at.alicdn.com/t/font_1230786_ewprpwrczvj.js"></script>
-    <script src={Site.iconfont}></script>
-</head>
-
-<body>
-    <div class="banner">
-        <img src={Site.background} alt="">
-        <div class="bottom-cover" style="background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(244 248 251 / 0.6) 50%, rgb(244 248 251) 100%);"></div>
-    </div>
-
-    <!--topbar开始-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="position: absolute; z-index: 10000;">
-        <a class="navbar-brand" href={`${import.meta.env.BASE_URL}`}><img src={Site.icon} height="35" style=" margin-left: 20px;" alt=""></a>
-        <button class="navbar-toggler collapsed" style="border: none; outline: none;" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="bi bi-list-nested" fill="currentColor" id="list-nested">
-                <path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 015 11h10a.5.5 0 010 1H5a.5.5 0 01-.5-.5zm-2-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm-2-4A.5.5 0 011 3h10a.5.5 0 010 1H1a.5.5 0 01-.5-.5z"></path>
-            </svg><span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" id="x">
-                    <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z"></path>
-                    <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z"></path>
-                </svg><span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsExample05">
-            <ul class="navbar-nav mr-auto">
-				<Navbar />
-            </ul>
-			<div id="main">
-				<div id="show_date">{new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}  {new Date().toLocaleDateString('zh-CN', { weekday: 'long' })}</div>
-                <div id="show_time"></div>
-                <script>
-                    setInterval(function() {
-                        var currentTime = new Date().toLocaleTimeString('zh-CN', { hour12: false, hour: '2-digit', minute: '2-digit' });
-                        const showTimeElement = document.getElementById("show_time");
-                        if (showTimeElement) {
-                            showTimeElement.textContent = currentTime;
-                        }
-                    }, 1000);
-                </script>
-			</div>
+    <body>
+        <div class="banner">
+            <img src={Site.background} />
+            <div
+                class="bottom-cover"
+                style="background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(244 248 251 / 0.6) 50%, rgb(244 248 251) 100%);"
+            >
+            </div>
         </div>
-    </nav>
-    <!--topbar结束-->
 
-    <div class="container" style="margin-top: 100px; position: relative; z-index: 100;">
-		<h2 class="title">{Site.h2}</h2>
-		<p class="content">{Site.yiyan[Math.floor(Math.random() * Site.yiyan.length)]}</p>
-        <!--搜索开始-->
-        <div id="search" class="s-search">
-            <div id="search-list" class="hide-type-list">
-                <div class="search-group group-a s-current" style="padding-left: 20px">
-                    <ul class="search-type">
-						{
-							search_lists.map((list: any) => (
-								<li>
-									<input hidden="" type="radio" name="type" id={`type-${list.id}`} value={list.url}
-										data-placeholder={list.placeholder}>
-									<label for={`type-${list.id}`}>
-										<span style={"color:"+list.color}>
-											{list.name}
-										</span>
-									</label>
-								</li>
-							))
-						}
-					</ul>
+        <!--topbar开始-->
+
+        <nav
+            class="navbar navbar-expand-lg navbar-light fixed-top"
+            style="position: absolute; z-index: 10000;"
+        >
+            <a class="navbar-brand" href={`${import.meta.env.BASE_URL}`}
+                ><img
+                    src={Site.icon}
+                    height="35"
+                    style=" margin-left: 20px;"
+                    alt=""
+                /></a
+            >
+
+            <button
+                class="navbar-toggler collapsed"
+                style="border: none; outline: none;"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarsExample05"
+                aria-controls="navbarsExample05"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <svg
+                    class="icon"
+                    viewBox="0 0 1024 1024"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    p-id="6029"
+                    width="200"
+                    height="200"
+                    ><path
+                        d="M901.632 896H122.368c-30.72 0-55.808-25.088-55.808-55.808v-1.536c0-30.72 25.088-55.808 55.808-55.808h779.776c30.72 0 55.808 25.088 55.808 55.808v1.536c-0.512 30.72-25.6 55.808-56.32 55.808zM901.632 568.32H122.368c-30.72 0-55.808-25.088-55.808-55.808v-1.536c0-30.72 25.088-55.808 55.808-55.808h779.776c30.72 0 55.808 25.088 55.808 55.808v1.536c-0.512 30.72-25.6 55.808-56.32 55.808zM901.632 240.64H122.368c-30.72 0-55.808-25.088-55.808-55.808v-1.536c0-30.72 25.088-55.808 55.808-55.808h779.776c30.72 0 55.808 25.088 55.808 55.808v1.536c-0.512 30.72-25.6 55.808-56.32 55.808z"
+                        p-id="3802"
+                        fill="#ffffff"></path></svg
+                >
+            </button>
+            <div class="type-right"></div>
+            <div class="collapse navbar-collapse" id="navbarsExample05">
+                <ul class="navbar-nav mr-auto">
+                    <Navbar />
+                </ul>
+                <div id="main">
+                    <div id="show_date">
+                        {
+                            new Date().toLocaleDateString("zh-CN", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                            })
+                        }
+                        {
+                            new Date().toLocaleDateString("zh-CN", {
+                                weekday: "long",
+                            })
+                        }
+                    </div>
+                    <div id="show_time">
+                        <script>
+                            setInterval(function () {
+                                var currentTime = new Date().toLocaleTimeString(
+                                    "zh-CN",
+                                    {
+                                        hour12: false,
+                                        hour: "2-digit",
+                                        minute: "2-digit",
+                                    },
+                                );
+                                const showTimeElement =
+                                    document.getElementById("show_time");
+                                if (showTimeElement) {
+                                    showTimeElement.textContent = currentTime;
+                                }
+                            }, 0);
+                        </script>
+                    </div>
                 </div>
             </div>
-            <form action="https://www.baidu.com/s?wd=" method="get" target="_blank" id="super-search-fm">
-                <input type="text" id="search-text" placeholder="百度一下" style="outline:0" autocomplete="off">
-                <button class="submit" type="submit"><svg style="width: 20px; height: 20px; margin:7px 0; color: #29f;" class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-sousuo"></use>
-                    </svg><span></button>
-                <ul id="word" style="display: none;"></ul>
-            </form>
-            <div class="set-check hidden-xs">
-                <input type="checkbox" id="set-search-blank" class="bubble-3" autocomplete="off">
-            </div>
-        </div>
-        <!--搜索结束-->
-		{
-					lists.map((list: any) => (
-						<Group
-							id={list.id}
-							title={list.title}
-							icon={list.icon}
-							services={list.services}
-						/>
-					))
-				}
-    </div>
-	<Footer />
-    <script>
-        (function () {
-            // DOM元素引用
-            var searchBlankCheckbox = document.querySelector("#set-search-blank"),
-                searchGroups = document.querySelectorAll(".search-group"),
-                selectedRadio = null;
-            var searchForm = document.querySelector("#super-search-fm"),
-                searchInput = document.querySelector("#search-text"),
-                searchTypeRadios = document.querySelectorAll('input[name="type"]');
-            // 初始化函数
-            function initialize() {
-                updateCheckbox();
-                updateRadio();
-                updatePlaceholder();
-                updateAction();
-            }
-            // 更新复选框状态
-            function updateCheckbox() {
-                if (searchBlankCheckbox) {
-                    (searchBlankCheckbox as HTMLInputElement).checked = isNewWindow();
-                }
-            }
-            // 更新单选按钮状态
-            function updateRadio() {
-                selectedRadio = document.querySelector(
-                    'input[name="type"][value="' + getCurrentType() + '"]'
-                );
-                if (selectedRadio) {
-                    (selectedRadio as HTMLInputElement).checked = true;
-                    highlightCurrentGroup(selectedRadio as HTMLInputElement);
-                }
-            }
-            // 更新搜索框占位符
-            function updatePlaceholder() {
-                setSearchPlaceholder(getPlaceholderText() || '');
-            }
-            // 更新表单提交地址
-            function updateAction() {
-                setFormAction(getActionURL());
-            }
-            // 高亮当前选中的单选按钮所在的组
-            function highlightCurrentGroup(selectedRadio: HTMLInputElement) {
-                if (selectedRadio && selectedRadio.parentNode && selectedRadio.parentNode.parentNode) {
-                    const groupNode = selectedRadio.parentNode.parentNode.parentNode;
-                    if (groupNode instanceof Element && groupNode.classList) {
-                        for (let i = 0; i < searchGroups.length; i++) {
-                            searchGroups[i].classList.remove("s-current");
-                        }
-                        groupNode.classList.add("s-current");
-                    }
-                }
-            }
-            // 保存到本地存储
-            function saveToLocalStorage(key: string, value: any) {
-                window.localStorage.setItem("superSearch" + key, value);
-            }
-            // 从本地存储获取数据
-            function getFromLocalStorage(key: string) {
-                return window.localStorage.getItem("superSearch" + key);
-            }
-            // 处理单选按钮改变事件
-            function handleRadioChange(event: Event) {
-                var target = event.target;
-                updatePlaceholder();
-                setFormAction(getActionURL());
-                if (target) {
-                    saveToLocalStorage("type", (target as HTMLInputElement).value);
-                }
-                if (searchInput) {
-                    (searchInput as HTMLInputElement).focus();
-                }
-                if (target instanceof HTMLInputElement) {
-                    highlightCurrentGroup(target);
-                }
-            }
-            // 获取当前选中的单选按钮的值
-            function getCurrentType() {
-                var typeFromStorage = getFromLocalStorage("type");
-                return typeFromStorage || (searchTypeRadios[0] as HTMLInputElement).value;
-            }
-            // 处理复选框改变事件
-            function handleCheckboxChange(event: Event) {
-                saveToLocalStorage(
-                    "newWindow",
-                    event.target && (event.target as HTMLInputElement).checked ? 1 : -1
-                );
-                if (event.target) {
-                    updateNewWindow((event.target as HTMLInputElement).checked);
-                }
-            }
-            // 更新是否在新窗口中打开搜索结果
-            function updateNewWindow(isChecked: boolean) {
-                if (searchForm) {
-                    isChecked
-                        ? ((searchForm as HTMLFormElement).target = "_blank")
-                        : searchForm.removeAttribute("target");
-                }
-            }
-            // 处理表单提交事件
-            function handleSubmit(event: Event) {
-                event.preventDefault();
-                if (searchInput && (searchInput as HTMLInputElement).value === "") {
-                    (searchInput as HTMLInputElement).focus();
-                    return false;
-                } else {
-                    if (searchInput) {
-                        setFormAction(getActionURL() + (searchInput as HTMLInputElement).value);
-                    }
-                    updateNewWindow(isNewWindow());
-                    isNewWindow()
-                        ? (searchForm && window.open((searchForm as HTMLFormElement).action, String(+new Date())))
-                        : (searchForm && (location.href = (searchForm as HTMLFormElement).action));
-                }
-            }
-            // 获取是否在新窗口中打开搜索结果
-            function isNewWindow() {
-                var newWindowSetting = getFromLocalStorage("newWindow");
-                return newWindowSetting ? Number(newWindowSetting) == 1 : true;
-            }
-            // 获取当前选中的单选按钮的占位符文本
-            function getPlaceholderText() {
-                var currentTypeRadio = getCurrentTypeRadio();
-                return currentTypeRadio ? currentTypeRadio.getAttribute("data-placeholder") : null;
-            }
-            // 获取当前选中的单选按钮的元素
-            function getCurrentTypeRadio() {
-                return document.querySelector('input[name="type"]:checked');
-            }
-            // 获取表单提交地址
-            function getActionURL() {
-                var currentTypeRadio = getCurrentTypeRadio() as HTMLInputElement;
-                return currentTypeRadio ? currentTypeRadio.value : '';
-            }
-            // 设置搜索框占位符文本
-            function setSearchPlaceholder(text: string) {
-                if (searchInput) {
-                    searchInput.setAttribute("placeholder", text);
-                }
-            }
-            // 设置表单提交地址
-            function setFormAction(url: string) {
-                if (searchForm) {
-                    (searchForm as HTMLFormElement).action = url;
-                }
-            }
-            // 初始化
-            initialize();
-            // 事件监听
-            for (var i = 0; i < searchTypeRadios.length; i++) {
-                searchTypeRadios[i].addEventListener("change", handleRadioChange);
-            }
-            if (searchBlankCheckbox) {
-                searchBlankCheckbox.addEventListener("change", handleCheckboxChange);
-            }
-            if (searchForm) {
-                searchForm.addEventListener("submit", handleSubmit);
-            }
-        })();
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</body>
+        </nav>
+        <!--topbar结束-->
 
+        <div
+            class="container"
+            style="margin-top:10vh; position: relative; z-index: 100;"
+        >
+            <h2 class="title">{Site.h2}</h2>
+            <p class="content">
+                {Site.yiyan[Math.floor(Math.random() * Site.yiyan.length)]}
+            </p>
+            <!--搜索开始-->
+            <div id="search" class="s-search">
+                <div id="search-list" class="hide-type-list">
+                    <div
+                        class="search-group group-a s-current"
+                        style=" margin-top: 50px;"
+                    >
+                        <ul class="search-type">
+                            {
+                                search_lists.map((list: any) => (
+                                    <li>
+                                        <input
+                                            hidden=""
+                                            checked=""
+                                            type="radio"
+                                            name="type"
+                                            id={`type-${list.id}`}
+                                            value={list.url}
+                                            data-placeholder={list.placeholder}
+                                        />
+                                        <label
+                                            for={`type-${list.id}`}
+                                            style="font-weight:600"
+                                        >
+                                            <span style={"color:" + list.color}>
+                                                {list.name}
+                                            </span>
+                                        </label>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <form
+                    action="https://www.bing.com/search?q="
+                    method="get"
+                    target="_blank"
+                    id="super-search-fm"
+                >
+                    <input
+                        type="text"
+                        id="search-text"
+                        placeholder="搜索一下"
+                        style="outline:0"
+                        autocomplete="off"
+                    />
+                    <button class="submit" type="submit">
+                        <svg
+                            style="width: 22px; height: 22px; margin: 0 20px 0 20px; color: #fff;"
+                            class="icon"
+                            aria-hidden="true"
+                            viewBox="0 0 1024 1024"
+                        >
+                            <path
+                                d="M950.820202 899.620202l-168.210101-168.080808c64.646465-74.731313 100.072727-169.115152 100.072727-268.8 0-109.89899-42.79596-213.20404-120.50101-290.779798S581.171717 51.329293 471.40202 51.329293c-109.89899 0-213.20404 42.79596-290.779798 120.50101-77.705051 77.705051-120.50101 181.010101-120.50101 290.779798 0 109.89899 42.79596 213.20404 120.50101 290.779798 77.705051 77.705051 181.010101 120.50101 290.779798 120.50101 90.763636 0 177.00202-29.220202 248.113132-83.135353l170.149494 170.149495c8.40404 8.40404 19.523232 12.670707 30.642425 12.670707s22.109091-4.266667 30.642424-12.670707c16.808081-16.937374 16.808081-44.347475-0.129293-61.284849z m-804.20202-437.010101c0-179.070707 145.713131-324.654545 324.654545-324.654545 179.070707 0 324.654545 145.713131 324.654546 324.654545 0.129293 179.070707-145.454545 324.783838-324.525253 324.783838S146.618182 641.680808 146.618182 462.610101z m0 0"
+                                fill=""></path>
+                        </svg>
+                    </button>
+                    <span> </span>
+
+                    <ul id="word" style="display: none;"></ul>
+                </form>
+                <div class="set-check hidden-xs">
+                    <input
+                        type="checkbox"
+                        id="set-search-blank"
+                        class="bubble-3"
+                        autocomplete="off"
+                    />
+                </div>
+            </div>
+            <!--搜索结束-->
+            {
+                lists.map((list: any) => (
+                    <Group
+                        id={list.id}
+                        title={list.title}
+                        icon={list.icon}
+                        services={list.services}
+                    />
+                ))
+            }
+        </div>
+        <Footer />
+        <script>
+            (function () {
+                // DOM元素引用
+                var searchBlankCheckbox =
+                        document.querySelector("#set-search-blank"),
+                    searchGroups = document.querySelectorAll(".search-group"),
+                    selectedRadio = null;
+                var searchForm = document.querySelector("#super-search-fm"),
+                    searchInput = document.querySelector("#search-text"),
+                    searchTypeRadios =
+                        document.querySelectorAll('input[name="type"]');
+                // 初始化函数
+                function initialize() {
+                    updateCheckbox();
+                    updateRadio();
+                    updatePlaceholder();
+                    updateAction();
+                }
+                // 更新复选框状态
+                function updateCheckbox() {
+                    if (searchBlankCheckbox) {
+                        (searchBlankCheckbox as HTMLInputElement).checked =
+                            isNewWindow();
+                    }
+                }
+                // 更新单选按钮状态
+                function updateRadio() {
+                    selectedRadio = document.querySelector(
+                        'input[name="type"][value="' + getCurrentType() + '"]',
+                    );
+                    if (selectedRadio) {
+                        (selectedRadio as HTMLInputElement).checked = true;
+                        highlightCurrentGroup(
+                            selectedRadio as HTMLInputElement,
+                        );
+                    }
+                }
+                // 更新搜索框占位符
+                function updatePlaceholder() {
+                    setSearchPlaceholder(getPlaceholderText() || "");
+                }
+                // 更新表单提交地址
+                function updateAction() {
+                    setFormAction(getActionURL());
+                }
+                // 高亮当前选中的单选按钮所在的组
+                function highlightCurrentGroup(
+                    selectedRadio: HTMLInputElement,
+                ) {
+                    if (
+                        selectedRadio &&
+                        selectedRadio.parentNode &&
+                        selectedRadio.parentNode.parentNode
+                    ) {
+                        const groupNode =
+                            selectedRadio.parentNode.parentNode.parentNode;
+                        if (
+                            groupNode instanceof Element &&
+                            groupNode.classList
+                        ) {
+                            for (let i = 0; i < searchGroups.length; i++) {
+                                searchGroups[i].classList.remove("s-current");
+                            }
+                            groupNode.classList.add("s-current");
+                        }
+                    }
+                }
+                // 保存到本地存储
+                function saveToLocalStorage(key: string, value: any) {
+                    window.localStorage.setItem("superSearch" + key, value);
+                }
+                // 从本地存储获取数据
+                function getFromLocalStorage(key: string) {
+                    return window.localStorage.getItem("superSearch" + key);
+                }
+                // 处理单选按钮改变事件
+                function handleRadioChange(event: Event) {
+                    var target = event.target;
+                    updatePlaceholder();
+                    setFormAction(getActionURL());
+                    if (target) {
+                        saveToLocalStorage(
+                            "type",
+                            (target as HTMLInputElement).value,
+                        );
+                    }
+                    if (searchInput) {
+                        (searchInput as HTMLInputElement).focus();
+                    }
+                    if (target instanceof HTMLInputElement) {
+                        highlightCurrentGroup(target);
+                    }
+                }
+                // 获取当前选中的单选按钮的值
+                function getCurrentType() {
+                    var typeFromStorage = getFromLocalStorage("type");
+                    return (
+                        typeFromStorage ||
+                        (searchTypeRadios[0] as HTMLInputElement).value
+                    );
+                }
+                // 处理复选框改变事件
+                function handleCheckboxChange(event: Event) {
+                    saveToLocalStorage(
+                        "newWindow",
+                        event.target &&
+                            (event.target as HTMLInputElement).checked
+                            ? 1
+                            : -1,
+                    );
+                    if (event.target) {
+                        updateNewWindow(
+                            (event.target as HTMLInputElement).checked,
+                        );
+                    }
+                }
+                // 更新是否在新窗口中打开搜索结果
+                function updateNewWindow(isChecked: boolean) {
+                    if (searchForm) {
+                        isChecked
+                            ? ((searchForm as HTMLFormElement).target =
+                                  "_blank")
+                            : searchForm.removeAttribute("target");
+                    }
+                }
+                // 处理表单提交事件
+                function handleSubmit(event: Event) {
+                    event.preventDefault();
+                    if (
+                        searchInput &&
+                        (searchInput as HTMLInputElement).value === ""
+                    ) {
+                        (searchInput as HTMLInputElement).focus();
+                        return false;
+                    } else {
+                        if (searchInput) {
+                            setFormAction(
+                                getActionURL() +
+                                    (searchInput as HTMLInputElement).value,
+                            );
+                        }
+                        updateNewWindow(isNewWindow());
+                        isNewWindow()
+                            ? searchForm &&
+                              window.open(
+                                  (searchForm as HTMLFormElement).action,
+                                  String(+new Date()),
+                              )
+                            : searchForm &&
+                              (location.href = (
+                                  searchForm as HTMLFormElement
+                              ).action);
+                    }
+                }
+                // 获取是否在新窗口中打开搜索结果
+                function isNewWindow() {
+                    var newWindowSetting = getFromLocalStorage("newWindow");
+                    return newWindowSetting
+                        ? Number(newWindowSetting) == 1
+                        : true;
+                }
+                // 获取当前选中的单选按钮的占位符文本
+                function getPlaceholderText() {
+                    var currentTypeRadio = getCurrentTypeRadio();
+                    return currentTypeRadio
+                        ? currentTypeRadio.getAttribute("data-placeholder")
+                        : null;
+                }
+                // 获取当前选中的单选按钮的元素
+                function getCurrentTypeRadio() {
+                    return document.querySelector('input[name="type"]:checked');
+                }
+                // 获取表单提交地址
+                function getActionURL() {
+                    var currentTypeRadio =
+                        getCurrentTypeRadio() as HTMLInputElement;
+                    return currentTypeRadio ? currentTypeRadio.value : "";
+                }
+                // 设置搜索框占位符文本
+                function setSearchPlaceholder(text: string) {
+                    if (searchInput) {
+                        searchInput.setAttribute("placeholder", text);
+                    }
+                }
+                // 设置表单提交地址
+                function setFormAction(url: string) {
+                    if (searchForm) {
+                        (searchForm as HTMLFormElement).action = url;
+                    }
+                }
+                // 初始化
+                initialize();
+                // 事件监听
+                for (var i = 0; i < searchTypeRadios.length; i++) {
+                    searchTypeRadios[i].addEventListener(
+                        "change",
+                        handleRadioChange,
+                    );
+                }
+                if (searchBlankCheckbox) {
+                    searchBlankCheckbox.addEventListener(
+                        "change",
+                        handleCheckboxChange,
+                    );
+                }
+                if (searchForm) {
+                    searchForm.addEventListener("submit", handleSubmit);
+                }
+            })();
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </body>
 </html>
