@@ -167,7 +167,8 @@ import lists from "../service-lists.yml";
                                         <label
                                             for={`type-${list.id}`}
                                             style="font-weight:600"
-                                        >
+                                        >   
+                                        <svg class="icon" aria-hidden="true"><use xlink:href={list.icon}></use></svg>
                                             <span style={"color:" + list.color}>
                                                 {list.name}
                                             </span>

@@ -6,7 +6,7 @@ export const Site = {
     copyright: "https://anye.xyz",
     icon: "https://cdn.anye.xyz/favicon.png",
     lsvn: "1.0.0",
-    iconfont: "//at.alicdn.com/t/c/font_4562126_qet2tmb22c8.js",
+    iconfont: "//at.alicdn.com/t/c/font_4562126_9fo6pp7psxq.js",
     background: "https://cdn.anye.xyz/background.jpg",
     h2: "上网，从这里开始！",
     icp: "晋ICP备2022006639号",
