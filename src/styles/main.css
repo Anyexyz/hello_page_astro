@@ -422,7 +422,7 @@ a.beian {
 }
 
 .banner img {
-    width: 1920px;
+    width: 100%;
     float: left;
 }
 
