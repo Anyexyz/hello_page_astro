@@ -209,7 +209,13 @@ p.content {
 }
 
 /* 时间 */
+@font-face {
+    font-family: "Micro";
+    src: url('./MicroExtendFLF.ttf')
+}
+
 #show_time {
+    font-family: "Micro";
     text-align: center;
     font-weight: bold;
     font-size: 30px;
@@ -352,7 +358,7 @@ a.beian {
     z-index: 1000;
     margin: 20px 0;
     border-radius: 15px;
-    background: #fff;
+    background: #ffffffe6;
     box-shadow: 0 0.5rem 0.625rem #d4d4d44d
 }
 

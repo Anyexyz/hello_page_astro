@@ -61,6 +61,16 @@ import lists from "../service-lists.yml";
             </ul>
 			<div id="main">
 				<div id="show_date">{new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}  {new Date().toLocaleDateString('zh-CN', { weekday: 'long' })}</div>
+                <div id="show_time"></div>
+                <script>
+                    setInterval(function() {
+                        var currentTime = new Date().toLocaleTimeString('zh-CN', { hour12: false, hour: '2-digit', minute: '2-digit' });
+                        const showTimeElement = document.getElementById("show_time");
+                        if (showTimeElement) {
+                            showTimeElement.textContent = currentTime;
+                        }
+                    }, 1000);
+                </script>
 			</div>
         </div>
     </nav>
