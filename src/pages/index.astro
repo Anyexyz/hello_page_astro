@@ -12,7 +12,7 @@ import search_lists from "../search-lists.yml";
 import lists from "../service-lists.yml";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -99,18 +99,23 @@ import lists from "../service-lists.yml";
                 </ul>
                 <div id="main">
                     <div id="show_date">
-                        {
-                            new Date().toLocaleDateString("zh-CN", {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric",
-                            })
-                        }
-                        {
-                            new Date().toLocaleDateString("zh-CN", {
-                                weekday: "long",
-                            })
-                        }
+                        <script>
+                            setInterval(function () {
+                                const currentDate = new Date();
+                                const formattedDate =
+                                    currentDate.toLocaleDateString("zh-CN", {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                        weekday: "long",
+                                    });
+                                const showDateElement =
+                                    document.getElementById("show_date");
+                                if (showDateElement) {
+                                    showDateElement.textContent = formattedDate;
+                                }
+                            });
+                        </script>
                     </div>
                     <div id="show_time">
                         <script>
@@ -128,7 +133,7 @@ import lists from "../service-lists.yml";
                                 if (showTimeElement) {
                                     showTimeElement.textContent = currentTime;
                                 }
-                            }, 0);
+                            });
                         </script>
                     </div>
                 </div>
@@ -167,8 +172,13 @@ import lists from "../service-lists.yml";
                                         <label
                                             for={`type-${list.id}`}
                                             style="font-weight:600"
-                                        >   
-                                        <svg class="icon" aria-hidden="true"><use xlink:href={list.icon}></use></svg>
+                                        >
+                                            <svg
+                                                class="icon"
+                                                aria-hidden="true"
+                                            >
+                                                <use xlink:href={list.icon} />
+                                            </svg>
                                             <span style={"color:" + list.color}>
                                                 {list.name}
                                             </span>
@@ -440,6 +450,9 @@ import lists from "../service-lists.yml";
                 }
             })();
         </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
     </body>
 </html>
